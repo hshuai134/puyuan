@@ -137,13 +137,19 @@ function SearchBox() {
     <div
       className='search_box'
     >
-      <Tooltip title="search">
-        <Space direction='vertical '>
+
+      <Space direction='vertical '>
+        <Tooltip title="搜索">
           <Button type="primary" onClick={showDrawer} shape="circle" icon={<SearchOutlined />} />
+        </Tooltip>
+        <Tooltip title="放大">
           <Button type="primary" onClick={handleZoomIn} shape="circle" icon={<PlusOutlined />} />
+        </Tooltip>
+        <Tooltip title="缩小">
           <Button type="primary" onClick={handleZoomOut} shape="circle" icon={<MinusOutlined />} />
-        </Space>
-      </Tooltip>
+        </Tooltip>
+      </Space>
+
       <Drawer mask={false} maskClosable={false} title="查询项" placement="right" width={"40%"} onClose={onClose} open={open}>
         <div className='content'>
           <Form
@@ -180,7 +186,9 @@ function SearchBox() {
               name="barCode"
               rules={[{ required: true, message: '请输入箱码!' }]}
             >
-              <Input />
+              <Input style={{
+                width: 150
+              }} />
             </Form.Item>
 
             <Form.Item

@@ -4,7 +4,7 @@ import './index.less'
 const Scaner = ({ option, i, flag }) => {
   return (
     <div
-      // className={`${!flag ? 'normal err' : 'normal'}`}
+      className={`${!flag ? 'normal err' : 'normal'}`}
       style={{
         position: 'absolute',
         left: `${option.x}px`,
@@ -19,7 +19,7 @@ const Scaner = ({ option, i, flag }) => {
           top: `${option.textY}px`,
           left: `${option.textX}px`,
           color: 'red',
-          fontSize: "24px",
+          fontSize: '60px',
           fontWeight: 700,
           zIndex: 999,
           width: 'max-content'

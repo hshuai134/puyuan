@@ -28,7 +28,7 @@ const Index = () => {
     if (res.status === 200) {
       setErrData((res.data.infos.list != null &&
         res.data.infos.list.concat([
-          // {errorPosition:220030, errorText: '急停'},
+          // {errorPosition:150770, errorText: '急停'},
           // {errorPosition:220010, errorText: '急停'},
           // {errorPosition:320410, errorText: '急停'}
         ])) || [
