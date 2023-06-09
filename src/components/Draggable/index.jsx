@@ -7,6 +7,7 @@ function Draggable(props) {
   const { children } = props;
 
   useEffect(() => {
+    //鼠标移动
     function handleMouseMove(event) {
       if (isDragging) {
         const { pageX, pageY, } = event;
@@ -19,8 +20,12 @@ function Draggable(props) {
       }
     }
 
+  //鼠标抬起
     function handleMouseUp(event) {
+      //只监听鼠标左键
+      if(event.button !==0 ) return
       setDragging(false);
+      console.log(event);
     }
 
     if (isDragging) {
@@ -34,7 +39,10 @@ function Draggable(props) {
     }
   }, [isDragging]);
 
+  //鼠标按下
   function handleMouseDown(event) {
+    //只监听鼠标左键
+    if(event.button !==0 ) return
     const { pageX, pageY } = event;
     setPosition1(prev => { return { x: pageX - prev.x, y: pageY - prev.y } });
     setDragging(true);

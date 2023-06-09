@@ -28,8 +28,8 @@ const Index = () => {
     if (res.status === 200) {
       setErrData((res.data.infos.list != null &&
         res.data.infos.list.concat([
-          {errorPosition:220030, errorText: '急停'},
-          {errorPosition:220010, errorText: '急停'},
+          // {errorPosition:220030, errorText: '急停'},
+          // {errorPosition:220010, errorText: '急停'},
           // {errorPosition:320410, errorText: '急停'}
         ])) || [
           // {errorPosition:130170, errorText: '急停'},
@@ -41,13 +41,14 @@ const Index = () => {
     }
   }
 
-  //监测异常路径
+  //监测异常路径5秒一次
   const { run: start, cancel: stop } = useRequest(getErrInfo, {
     manual: true,
     pollingInterval: 5000,  //轮询
   });
 
 
+  //全局放大比例监听
   useEffect(() => {
     const zoomableElem = document.getElementById('zoomable');
     zoomableElem.style.transformOrigin = `letf top`;
@@ -55,6 +56,7 @@ const Index = () => {
     console.log(zoomLevel);
   }, [zoomLevel]);
 
+  //定时器控制闪烁
   useEffect(() => {
     start();
     const interval = setInterval(() => {
@@ -65,7 +67,7 @@ const Index = () => {
     };
   }, [])
 
-
+  //根据多个扫描记录和方向，找出需要显示的对应节点集合
   useEffect(() => {
     console.log("查询路径：",scanerData);
     let s = scanerPath.filter((item, i) => {

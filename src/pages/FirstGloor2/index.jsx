@@ -12,6 +12,7 @@ const FirstGloor2 = ({ flag, errData = [], path = [] }) => {
   const [showErrScaner, setShowErrScaner] = useState([])
   const [myPath, setMyPath] = useState([])
 
+  //根据返回的错误节点，过滤出在本图的节点数据
   useEffect(() => {
     let errPath = errPosition.filter((item, i) => {
       let flag = false
@@ -31,6 +32,7 @@ const FirstGloor2 = ({ flag, errData = [], path = [] }) => {
     })
     setShowErrPath(errPath)
 
+  //报错节点等于扫描器也需要显示扫描器
     let errScaner = scaners.filter((item, i) => {
       let flag = false
       for (const err of errData) {
@@ -46,6 +48,7 @@ const FirstGloor2 = ({ flag, errData = [], path = [] }) => {
     setShowErrScaner(errScaner)
   }, [errData])
 
+  //根据获取到的需要显示节点，过滤出属于本图的节点并渲染
   useEffect(() => {
     let Path = errPosition.filter((item, i) => {
       let flag = false
