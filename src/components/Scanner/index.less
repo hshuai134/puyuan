@@ -1,0 +1,33 @@
+.normal {
+  width: 25px;
+  height: 25px;
+  background-color: #16bd0a;
+  position: relative;
+  line-height: 25px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  transition: background-color shadow 1s ease-in-out;
+  user-select: none;
+}
+
+//过渡用法
+.err{
+  background-color: red;
+  box-shadow: 0 0 20px 10px rgba(255, 0, 0, 1);
+}
+
+//关键帧用法  
+// .err {
+//   animation: trafficLight 1s infinite;
+// }
+
+// @keyframes trafficLight {
+//   0%, 50% {
+//     background-color: red;
+//   }
+  
+//   25% {
+//     background-color: red;
+//     box-shadow: 0 0 20px 10px rgba(255, 0, 0, 1);
+//   }
+// }

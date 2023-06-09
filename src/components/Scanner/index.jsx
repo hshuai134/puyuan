@@ -1,23 +1,32 @@
 import React from 'react';
+import './index.less'
 
-const Scaner = ({ length, color , backgroundColor, x,y, rotation, num, vertical=false }) => {
+const Scaner = ({ option, i, flag }) => {
   return (
     <div
+      // className={`${!flag ? 'normal err' : 'normal'}`}
       style={{
-        width: `${(vertical && '20px') || '20px'}`,
-        height: `${(vertical && '20px') || '20px'}`,
-        border: `5px solid ${color || '#00d70f'}`,
         position: 'absolute',
-        left: `${x+130}px`,
-        top: `${y}px`,
+        left: `${option.x}px`,
+        top: `${option.y}px`,
         zIndex: 999,
-        // transform: `rotate(${rotation}deg)`,
-        // transformOrigin: `${origin || 'top left'}`, // 指定旋转的原点为左上角
-        textAlign:'center',
-        lineHeight: `${(vertical && '40px') || '20px'}`,
-        // color: 'yellow'
       }}
-    >{num}</div>
+    >{i}
+      <p
+        style={{
+          // display: `${option.err ? '' : 'none'}`,
+          position: 'absolute',
+          top: `${option.textY}px`,
+          left: `${option.textX}px`,
+          color: 'red',
+          fontSize: "24px",
+          fontWeight: 700,
+          zIndex: 999,
+          width: 'max-content'
+        }}>
+        {`【${option.num}】  ${option.errorText || '未知错误'}`}
+      </p>
+    </div>
   );
 };
 
