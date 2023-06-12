@@ -1,5 +1,5 @@
 #!/bin/bash
-# npm run build
+npm run build
 docker-compose build --force-rm
 docker build -t 192.168.1.220:5000/hopeshow_wcsflow:latest .
 docker push 192.168.1.220:5000/hopeshow_wcsflow:latest
